@@ -1,1 +1,2 @@
 com.microsoft.mixedreality.toolkit.examples-2.7.2.tgz filter=lfs diff=lfs merge=lfs -text
+*.cubemap filter=lfs diff=lfs merge=lfs -text
