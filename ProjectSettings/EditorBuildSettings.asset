@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Scena Zunaj.unity
+    path: Assets/Scenes/SceneIntroduction.unity
     guid: 6ceeaa84277770842a24402e1a0ef99c
   - enabled: 1
-    path: Assets/Scenes/Scena1.unity
-    guid: 155db7a54f964f940af841367a2d5632
+    path: Assets/Scenes/SceneInteractables.unity
+    guid: 50161ea4f733a47418cbb1c0758ef521
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c17e7a9a770e024409f96d8789f8a279, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: efce5a2e53ab2f247932540fcc5f74c4, type: 2}
