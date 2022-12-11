@@ -18,9 +18,9 @@ namespace Utility
 
         public void OnSliderPositionUpdated(SliderEventData eventData)
         {
-            var sliderSliderValue = eventData.Slider.SliderValue + 0.5f;
+            var sliderSliderValue = eventData.Slider.SliderValue;
             transform.position =
-                new Vector3(transform.position.x, transform.position.y, sliderSliderValue * posMultiplier - 100f);
+                new Vector3(transform.position.x, transform.position.y, sliderSliderValue * posMultiplier);
         }
     }
 }
