@@ -116,10 +116,10 @@ Material:
     - _VertexExtrusionSmoothNormal: 1
     - _VertexExtrusionSmoothNormals: 1
     - _VertexExtrusionValue: 0.01
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
+    - _ZOffsetFactor: 200
+    - _ZOffsetUnits: 50.4
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
     - _Color: {r: 0, g: 1, b: 0.8638129, a: 1}
