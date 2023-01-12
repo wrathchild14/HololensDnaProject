@@ -5,7 +5,7 @@ namespace Utility
 {
     public class SceneChange : MonoBehaviour
     {
-        void Update()
+        private void Update()
         {
             if (transform.localScale.x > 0.2f)
             {
