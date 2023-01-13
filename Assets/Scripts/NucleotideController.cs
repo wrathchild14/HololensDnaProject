@@ -26,7 +26,7 @@ public class NucleotideController : MonoBehaviour, IMixedRealityPointerHandler
         if (!_saved)
         {
             _outline.enabled = true;
-            Debug.Log("interaction started");
+            //Debug.Log("interaction started");
 
             _timePassed = DateTime.Now;
         }
