@@ -1,48 +1,35 @@
 using System;
 using System.IO;
 using Microsoft.MixedReality.Toolkit.Input;
-using Microsoft.MixedReality.Toolkit.UI;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class NucleotideController : MonoBehaviour, IMixedRealityPointerHandler
 {
+    public TextMeshPro readDataText;
+    public string fileName = "names.txt";
+    private bool _saved = false;
+    private string _filePath;
+
     private MeshOutline _outline;
-    public string filename = "test.txt";
-    private string _path;
+    private DateTime _timePassed;
 
     private void Start()
     {
-        _path = Path.Combine(Application.persistentDataPath, filename);
+        _filePath = Path.Combine(Application.persistentDataPath, fileName);
         // read information from some file in this path
         _outline = GetComponent<MeshOutline>();
     }
 
-    public void OnInteractionStarted()
-    {
-        Debug.Log("interaction started");
-
-        var data = "I interacted with " + gameObject.name;
-        File.AppendAllText(_path, data);
-        _outline.enabled = true;
-    }
-
-    public void OnInteractionEnded()
-    {
-        // _outline.enabled = false;
-        Debug.Log("interaction ended");
-    }
-
-    private void Update()
-    {
-        // when gazed upon display information
-        // when pinched save information to path
-    }
-
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        Debug.Log("pointer dow");
-        OnInteractionStarted();
+        if (!_saved)
+        {
+            _outline.enabled = true;
+            Debug.Log("interaction started");
+
+            _timePassed = DateTime.Now;
+        }
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -51,10 +38,24 @@ public class NucleotideController : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
     {
-        OnInteractionEnded();
+        if (!_saved)
+        {
+            var duration = DateTime.Now.Subtract(_timePassed);
+            if (duration.Seconds >= 2)
+            {
+                var data = gameObject.name + ", ";
+                File.AppendAllText(_filePath, data);
+                _saved = true;
+            }
+            else
+            {
+                _outline.enabled = false;
+            }
+        }
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
+        if (_outline.enabled && _saved) readDataText.text = File.ReadAllText(_filePath);
     }
 }
