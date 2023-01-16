@@ -10,16 +10,15 @@ namespace Assets.Scripts
     {
         public TextMeshPro readDataText;
         public string fileName = "names.txt";
-        private bool _saved = false;
         private string _filePath;
 
         private MeshOutline _outline;
+        private bool _saved;
         private DateTime _timePassed;
 
         private void Start()
         {
             _filePath = Path.Combine(Application.persistentDataPath, fileName);
-            // read information from some file in this path
             _outline = GetComponent<MeshOutline>();
         }
 
@@ -28,8 +27,6 @@ namespace Assets.Scripts
             if (!_saved)
             {
                 _outline.enabled = true;
-                //Debug.Log("interaction started");
-
                 _timePassed = DateTime.Now;
             }
         }
